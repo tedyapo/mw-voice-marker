@@ -9,6 +9,8 @@
 #     and curently uses the cmu_us_ljm.flitevox voice which must be downloaded
 #
 
+import numpy as np
+from scipy import signal
 import subprocess
 import wave
 import struct
@@ -79,46 +81,37 @@ for freq in frequencies:
   if nframes > max_frames:
     max_frames = nframes
 
-
-# modulate and combine signals
-t = 0.
+# modulate all signals onto I and Q
+n_samples = max_frames * upsample_rate
+I = np.zeros(n_samples)
+Q = np.zeros(n_samples)
+t = np.linspace(0., n_samples-1, n_samples)/f_sample
 wl = 2. * math.pi * f_local_oscillator
-scale = 1./len(frequencies)
-amplitudes = {}
-sample_idx = 0.
-max_amplitude = 0.
-for frame in range(0, max_frames):
-  sys.stderr.write('generating frame ' + 
-                   str(frame) + '/' + str(max_frames) + '\r')
-  for freq in frequencies:
-    if frame >= wavs[freq].getnframes():
-      amplitudes[freq] = -0.
-    else:
-      amplitudes[freq] = struct.unpack('<h',
-                                       wavs[freq].readframes(1))[0] / 32768.
+scale = amplitude_scale * 1./len(frequencies)
+ 
+for freq in frequencies:
+  sys.stderr.write('modulating ' + str(freq) + ' kHz\r') 
+  a = np.zeros(max_frames)
+  n_frames = wavs[freq].getnframes()
+  for i in range(0, n_frames):
+    a[i] = struct.unpack('<h', wavs[freq].readframes(1))[0] / 32768.
+  a_s = signal.resample(a, n_samples)
+  wc = 2. * math.pi * freq * 1.e3
+  I += scale * (0.5 + 0.5 * a_s) * np.cos((wc - wl) * t)
+  Q += scale * (0.5 + 0.5 * a_s) * np.sin((wc - wl) * t)
 
-  for upsample in range(0, upsample_rate):
-    t = sample_idx / f_sample
-    sample_idx += 1.
-    I = 0.
-    Q = 0.
-    for freq in frequencies:
-      wc = 2. * math.pi * freq * 1.e3
-      I += scale * (0.5 + 0.5 * amplitudes[freq]) * math.cos(t * (wc - wl))
-      Q += scale * (0.5 + 0.5 * amplitudes[freq]) * math.sin(t * (wc - wl))
-    I *= amplitude_scale
-    Q *= amplitude_scale
-    if abs(I) > max_amplitude:
-      max_amplitude = abs(I)
-    if abs(Q) > max_amplitude:
-      max_amplitude = abs(Q)
-    I = min(1., max(I, -1.))
-    Q = min(1., max(Q, -1.))
-    if quantization_test:
-      I = round(I * 127.) / 128.;
-      Q = round(Q * 127.) / 128.;
-    cf32_iq = struct.pack('ff', I, Q)
-    sys.stdout.write(cf32_iq)
+max_amplitude = max(np.amax(I), np.amax(Q))
+
+I = np.maximum(-1., np.minimum(I, 1.))
+Q = np.maximum(-1., np.minimum(Q, 1.))
+
+if quantization_test:
+  I = np.rint(I * 127.) / 128.;
+  Q = np.rint(Q * 127.) / 128.;
+
+for i in range(0, n_samples):
+  cf32_iq = struct.pack('ff', I[i], Q[i])
+  sys.stdout.write(cf32_iq)
 
 sys.stderr.write('\n')  
 sys.stderr.write('max amplitude = ' + str(max_amplitude) + '\n')  
