@@ -18,10 +18,15 @@ import tempfile
 import math
 import sys
 
+# switch for IQ vs real baseband sampling
+iq_sampling = True
+
 f_speech = 16000 # hard-coded inside speech synthesizer
-upsample_rate = 74
+if iq_sampling:
+  upsample_rate = 74
+else:
+  upsample_rate = 214
 f_sample = f_speech * upsample_rate
-#f_local_oscillator = 1.6e6
 f_local_oscillator = 1.115e6
 amplitude_scale = 1.679 # empirically determined to give +/- 1 output
 
@@ -81,12 +86,16 @@ for freq in frequencies:
   if nframes > max_frames:
     max_frames = nframes
 
-# modulate all signals onto I and Q
+# modulate all signals onto I and Q or sample baseband directly
 n_samples = max_frames * upsample_rate
-I = np.zeros(n_samples)
-Q = np.zeros(n_samples)
+if iq_sampling:
+  wl = 2. * math.pi * f_local_oscillator  
+  I = np.zeros(n_samples)
+  Q = np.zeros(n_samples)
+else:
+  R = np.zeros(n_samples)
+  
 t = np.linspace(0., n_samples-1, n_samples)/f_sample
-wl = 2. * math.pi * f_local_oscillator
 scale = amplitude_scale * 1./len(frequencies)
  
 for freq in frequencies:
@@ -97,21 +106,37 @@ for freq in frequencies:
     a[i] = struct.unpack('<h', wavs[freq].readframes(1))[0] / 32768.
   a_s = signal.resample(a, n_samples)
   wc = 2. * math.pi * freq * 1.e3
-  I += scale * (0.5 + 0.5 * a_s) * np.cos((wc - wl) * t)
-  Q += scale * (0.5 + 0.5 * a_s) * np.sin((wc - wl) * t)
+  if iq_sampling:
+    I += scale * (0.5 + 0.5 * a_s) * np.cos((wc - wl) * t)
+    Q += scale * (0.5 + 0.5 * a_s) * np.sin((wc - wl) * t)
+  else:
+    R += scale * (0.5 + 0.5 * a_s) * np.cos(wc * t)
 
-max_amplitude = max(np.amax(I), np.amax(Q))
+if iq_sampling:    
+  max_amplitude = max(np.amax(I), np.amax(Q))
+else:
+  max_amplitude = np.amax(R)
 
-I = np.maximum(-1., np.minimum(I, 1.))
-Q = np.maximum(-1., np.minimum(Q, 1.))
+if iq_sampling:      
+  I = np.maximum(-1., np.minimum(I, 1.))
+  Q = np.maximum(-1., np.minimum(Q, 1.))
+else:
+  R = np.maximum(-1., np.minimum(R, 1.))  
 
 if quantization_test:
-  I = np.rint(I * 127.) / 128.;
-  Q = np.rint(Q * 127.) / 128.;
+  if iq_sampling:      
+    I = np.rint(I * 127.) / 128.;
+    Q = np.rint(Q * 127.) / 128.;
+  else:
+    R = np.rint(R * 127.) / 128.;
 
 for i in range(0, n_samples):
-  cf32_iq = struct.pack('ff', I[i], Q[i])
-  sys.stdout.write(cf32_iq)
+  if iq_sampling:      
+    cf32_iq = struct.pack('ff', I[i], Q[i])
+    sys.stdout.write(cf32_iq)
+  else:
+    f32_r = struct.pack('f', R[i])
+    sys.stdout.write(f32_r)
 
 sys.stderr.write('\n')  
 sys.stderr.write('max amplitude = ' + str(max_amplitude) + '\n')  
