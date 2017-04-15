@@ -15,7 +15,6 @@ import subprocess
 import wave
 import struct
 import tempfile
-import math
 import sys
 
 # switch for IQ vs real baseband sampling
@@ -35,9 +34,10 @@ f_min = 530
 f_max = 1700
 f_step = 10
 
-# quantize to 8-bits for testing, or leave in 32-bit float precision
+# quantize to N-bits for testing, or leave in 32-bit float precision
 #  (output in 32-bit float format either way)
-quantization_test = False
+quantization_test = True
+quantization_bits = 10
 
 sys.stderr.write('f_sample = ' + str(f_sample) + '\n');
 sys.stderr.write('f_local_oscillator = ' + str(f_local_oscillator) + '\n');
@@ -89,7 +89,7 @@ for freq in frequencies:
 # modulate all signals onto I and Q or sample baseband directly
 n_samples = max_frames * upsample_rate
 if iq_sampling:
-  wl = 2. * math.pi * f_local_oscillator  
+  wl = 2. * np.pi * f_local_oscillator  
   I = np.zeros(n_samples)
   Q = np.zeros(n_samples)
 else:
@@ -105,7 +105,7 @@ for freq in frequencies:
   for i in range(0, n_frames):
     a[i] = struct.unpack('<h', wavs[freq].readframes(1))[0] / 32768.
   a_s = signal.resample(a, n_samples)
-  wc = 2. * math.pi * freq * 1.e3
+  wc = 2. * np.pi * freq * 1.e3
   if iq_sampling:
     I += scale * (0.5 + 0.5 * a_s) * np.cos((wc - wl) * t)
     Q += scale * (0.5 + 0.5 * a_s) * np.sin((wc - wl) * t)
@@ -124,11 +124,12 @@ else:
   R = np.maximum(-1., np.minimum(R, 1.))  
 
 if quantization_test:
+  n = np.power(2., quantization_bits - 1)
   if iq_sampling:      
-    I = np.rint(I * 127.) / 128.;
-    Q = np.rint(Q * 127.) / 128.;
+    I = np.rint(I * (n-1.)) / n;
+    Q = np.rint(Q * (n-1.)) / n;
   else:
-    R = np.rint(R * 127.) / 128.;
+    R = np.rint(R * (n-1.)) / n;
 
 for i in range(0, n_samples):
   if iq_sampling:      
