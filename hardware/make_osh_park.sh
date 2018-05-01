@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BOARDS=(mw_am_lpf)
+BOARDS=(mw_am_lpf vga_breakout)
 OSHP_FILES=(topsilkscreen.ger topsoldermask.ger toplayer.ger \
             bottomsilkscreen.ger bottomsoldermask.ger bottomlayer.ger \
             boardoutline.ger drills.xln)
