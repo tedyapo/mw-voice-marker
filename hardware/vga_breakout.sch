@@ -81,8 +81,6 @@
 <pad name="8" x="-0.895" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
 <pad name="9" x="1.395" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
 <pad name="10" x="3.685" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<hole x="-12.5" y="0" drill="3.1"/>
-<hole x="12.5" y="0" drill="3.1"/>
 <wire x1="-15.405" y1="-11.43" x2="15.405" y2="-11.43" width="0.127" layer="21"/>
 <wire x1="-15.405" y1="4.77" x2="15.405" y2="4.77" width="0.127" layer="21"/>
 <wire x1="-15.405" y1="4.77" x2="-15.405" y2="-11.43" width="0.127" layer="21"/>
@@ -92,6 +90,8 @@
 <wire x1="-7.355" y1="-17.33" x2="7.355" y2="-17.33" width="0.127" layer="21"/>
 <wire x1="7.355" y1="-17.33" x2="8.5" y2="-16.185" width="0.127" layer="21" curve="90"/>
 <wire x1="8.5" y1="-16.185" x2="8.5" y2="-11.45" width="0.127" layer="21"/>
+<pad name="TAB@1" x="-12.5" y="0" drill="3.1" diameter="4.5"/>
+<pad name="TAB@2" x="12.5" y="0" drill="3.1" diameter="4.5"/>
 </package>
 <package name="EDGE_LAUNCH_RF_CON">
 <wire x1="-5.5" y1="4.75" x2="-5.5" y2="3.25" width="0.127" layer="51"/>
@@ -256,7 +256,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="VGA_DB25" prefix="J">
+<deviceset name="VGA_DB15" prefix="J">
 <gates>
 <gate name="G$1" symbol="VGA" x="2.54" y="0"/>
 </gates>
@@ -266,7 +266,7 @@
 <connect gate="G$1" pin="BGND" pad="8"/>
 <connect gate="G$1" pin="BLUE" pad="3"/>
 <connect gate="G$1" pin="GGND" pad="7"/>
-<connect gate="G$1" pin="GND" pad="5"/>
+<connect gate="G$1" pin="GND" pad="5 TAB@1 TAB@2"/>
 <connect gate="G$1" pin="GREEN" pad="2"/>
 <connect gate="G$1" pin="HSYNC" pad="13"/>
 <connect gate="G$1" pin="ID0" pad="11"/>
@@ -367,9 +367,15 @@
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="50ohm" width="1.0414" drill="0">
+<clearance class="1" value="0.2032"/>
+</class>
+<class number="2" name="75ohm" width="0.2032" drill="0">
+<clearance class="2" value="0.1524"/>
+</class>
 </classes>
 <parts>
-<part name="J1" library="mw-voice-marker" deviceset="VGA_DB25" device=""/>
+<part name="J1" library="mw-voice-marker" deviceset="VGA_DB15" device=""/>
 <part name="U$4" library="mw-voice-marker" deviceset="GND" device=""/>
 <part name="U$5" library="mw-voice-marker" deviceset="GND" device=""/>
 <part name="U$6" library="mw-voice-marker" deviceset="GND" device=""/>
@@ -520,7 +526,7 @@
 <junction x="71.12" y="25.4"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="N$2" class="1">
 <segment>
 <pinref part="R3" gate="G$1" pin="P$3"/>
 <pinref part="U$2" gate="G$1" pin="CENTER"/>
@@ -531,7 +537,7 @@
 <junction x="71.12" y="55.88"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="N$3" class="1">
 <segment>
 <pinref part="U$1" gate="G$1" pin="CENTER"/>
 <pinref part="R1" gate="G$1" pin="P$4"/>
@@ -542,14 +548,14 @@
 <junction x="71.12" y="88.9"/>
 </segment>
 </net>
-<net name="RED" class="0">
+<net name="RED" class="2">
 <segment>
 <pinref part="R1" gate="G$1" pin="P$3"/>
 <pinref part="J1" gate="G$1" pin="RED"/>
 <wire x1="53.34" y1="88.9" x2="7.62" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="GREEN" class="0">
+<net name="GREEN" class="2">
 <segment>
 <pinref part="J1" gate="G$1" pin="GREEN"/>
 <wire x1="7.62" y1="78.74" x2="48.26" y2="78.74" width="0.1524" layer="91"/>
@@ -558,7 +564,7 @@
 <wire x1="48.26" y1="55.88" x2="53.34" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="BLUE" class="0">
+<net name="BLUE" class="2">
 <segment>
 <pinref part="R5" gate="G$1" pin="P$4"/>
 <wire x1="53.34" y1="25.4" x2="45.72" y2="25.4" width="0.1524" layer="91"/>
