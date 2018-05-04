@@ -83,21 +83,21 @@
 <library name="mw-voice-marker">
 <packages>
 <package name="VGA_PCB_MALE">
-<pad name="1" x="-4.33" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="2" x="-2.04" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="3" x="0.25" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="4" x="2.54" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="5" x="4.83" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="11" x="-4.33" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="12" x="-2.04" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="13" x="0.25" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="14" x="2.54" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="15" x="4.83" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="6" x="-5.475" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="7" x="-3.185" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="8" x="-0.895" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="9" x="1.395" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="10" x="3.685" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
+<pad name="1" x="-4.33" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="2" x="-2.04" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="3" x="0.25" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="4" x="2.54" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="5" x="4.83" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="11" x="-4.33" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="12" x="-2.04" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="13" x="0.25" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="14" x="2.54" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="15" x="4.83" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="6" x="-5.475" y="0" drill="1.2" shape="octagon"/>
+<pad name="7" x="-3.185" y="0" drill="1.2" shape="octagon"/>
+<pad name="8" x="-0.895" y="0" drill="1.2" shape="octagon"/>
+<pad name="9" x="1.395" y="0" drill="1.2" shape="octagon"/>
+<pad name="10" x="3.685" y="0" drill="1.2" shape="octagon"/>
 <wire x1="-15.405" y1="-11.43" x2="15.405" y2="-11.43" width="0.127" layer="21"/>
 <wire x1="-15.405" y1="4.77" x2="15.405" y2="4.77" width="0.127" layer="21"/>
 <wire x1="-15.405" y1="4.77" x2="-15.405" y2="-11.43" width="0.127" layer="21"/>
@@ -137,9 +137,6 @@
 <wire x1="-5.5" y1="0.375" x2="-5.5" y2="-0.375" width="0.127" layer="51"/>
 <wire x1="-5.5" y1="-0.375" x2="0" y2="-0.375" width="0.127" layer="51"/>
 <smd name="CENTER" x="-2.875" y="0" dx="1.0414" dy="5.715" layer="1" rot="R90"/>
-<text x="9.525" y="1.27" size="1.016" layer="51">41 mil trace</text>
-<text x="9.525" y="-0.635" size="1.016" layer="51">8 mil space</text>
-<text x="9.525" y="-2.54" size="1.016" layer="51">50.0 Ohms</text>
 <smd name="SHIELD@1" x="-3.175" y="-4.1275" dx="2.54" dy="6.35" layer="1" rot="R90" thermals="no"/>
 <smd name="SHIELD@2" x="-3.175" y="4.1275" dx="2.54" dy="6.35" layer="1" rot="R90" thermals="no"/>
 <polygon width="0.2032" layer="1">
@@ -389,9 +386,9 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </autorouter>
 <elements>
 <element name="J1" library="mw-voice-marker" package="VGA_PCB_MALE" value="VGA_DB15" x="11.43" y="26.67" rot="R270"/>
-<element name="U$1" library="mw-voice-marker" package="EDGE_LAUNCH_RF_CON" value="EDGE_LAUNCH_JACK" x="27.94" y="41.91"/>
-<element name="U$2" library="mw-voice-marker" package="EDGE_LAUNCH_RF_CON" value="EDGE_LAUNCH_JACK" x="27.94" y="26.67"/>
-<element name="U$3" library="mw-voice-marker" package="EDGE_LAUNCH_RF_CON" value="EDGE_LAUNCH_JACK" x="27.94" y="11.43"/>
+<element name="U$1" library="mw-voice-marker" package="EDGE_LAUNCH_RF_CON" value="" x="27.94" y="41.91"/>
+<element name="U$2" library="mw-voice-marker" package="EDGE_LAUNCH_RF_CON" value="" x="27.94" y="26.67"/>
+<element name="U$3" library="mw-voice-marker" package="EDGE_LAUNCH_RF_CON" value="" x="27.94" y="11.43"/>
 <element name="R2" library="mw-voice-marker" package="R0805" value="86.6" x="19.05" y="39.37" rot="R180"/>
 <element name="R1" library="mw-voice-marker" package="R0805" value="43.2" x="19.05" y="41.91"/>
 <element name="R4" library="mw-voice-marker" package="R0805" value="86.6" x="19.05" y="24.13"/>
@@ -552,22 +549,22 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <contactref element="R5" pad="P$1"/>
 <contactref element="U$3" pad="CENTER"/>
 <contactref element="R6" pad="P$1"/>
-<wire x1="25.065" y1="11.43" x2="19.925" y2="11.43" width="1.016" layer="1"/>
-<wire x1="19.925" y1="8.89" x2="19.925" y2="11.43" width="1.016" layer="1"/>
+<wire x1="25.065" y1="11.43" x2="19.925" y2="11.43" width="1.0414" layer="1"/>
+<wire x1="19.925" y1="8.89" x2="19.925" y2="11.43" width="1.0414" layer="1"/>
 </signal>
 <signal name="N$2" class="1">
 <contactref element="R3" pad="P$1"/>
 <contactref element="U$2" pad="CENTER"/>
 <contactref element="R4" pad="P$2"/>
-<wire x1="25.065" y1="26.67" x2="19.925" y2="26.67" width="1.016" layer="1"/>
-<wire x1="19.925" y1="24.13" x2="19.925" y2="26.67" width="1.016" layer="1"/>
+<wire x1="19.925" y1="26.67" x2="25.065" y2="26.67" width="1.0414" layer="1"/>
+<wire x1="19.925" y1="26.67" x2="19.925" y2="24.13" width="1.0414" layer="1"/>
 </signal>
 <signal name="N$3" class="1">
 <contactref element="U$1" pad="CENTER"/>
 <contactref element="R1" pad="P$2"/>
 <contactref element="R2" pad="P$1"/>
-<wire x1="25.065" y1="41.91" x2="19.925" y2="41.91" width="1.016" layer="1"/>
-<wire x1="19.925" y1="39.37" x2="19.925" y2="41.91" width="1.016" layer="1"/>
+<wire x1="19.925" y1="41.91" x2="25.065" y2="41.91" width="1.0414" layer="1"/>
+<wire x1="19.925" y1="39.37" x2="19.925" y2="41.91" width="1.0414" layer="1"/>
 </signal>
 <signal name="RED" class="2">
 <contactref element="R1" pad="P$1"/>

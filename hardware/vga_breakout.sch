@@ -66,21 +66,21 @@
 <library name="mw-voice-marker">
 <packages>
 <package name="VGA_PCB_MALE">
-<pad name="1" x="-4.33" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="2" x="-2.04" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="3" x="0.25" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="4" x="2.54" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="5" x="4.83" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="11" x="-4.33" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="12" x="-2.04" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="13" x="0.25" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="14" x="2.54" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="15" x="4.83" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="6" x="-5.475" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="7" x="-3.185" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="8" x="-0.895" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="9" x="1.395" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="10" x="3.685" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
+<pad name="1" x="-4.33" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="2" x="-2.04" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="3" x="0.25" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="4" x="2.54" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="5" x="4.83" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="11" x="-4.33" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="12" x="-2.04" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="13" x="0.25" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="14" x="2.54" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="15" x="4.83" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="6" x="-5.475" y="0" drill="1.2" shape="octagon"/>
+<pad name="7" x="-3.185" y="0" drill="1.2" shape="octagon"/>
+<pad name="8" x="-0.895" y="0" drill="1.2" shape="octagon"/>
+<pad name="9" x="1.395" y="0" drill="1.2" shape="octagon"/>
+<pad name="10" x="3.685" y="0" drill="1.2" shape="octagon"/>
 <wire x1="-15.405" y1="-11.43" x2="15.405" y2="-11.43" width="0.127" layer="21"/>
 <wire x1="-15.405" y1="4.77" x2="15.405" y2="4.77" width="0.127" layer="21"/>
 <wire x1="-15.405" y1="4.77" x2="-15.405" y2="-11.43" width="0.127" layer="21"/>
@@ -120,9 +120,6 @@
 <wire x1="-5.5" y1="0.375" x2="-5.5" y2="-0.375" width="0.127" layer="51"/>
 <wire x1="-5.5" y1="-0.375" x2="0" y2="-0.375" width="0.127" layer="51"/>
 <smd name="CENTER" x="-2.875" y="0" dx="1.0414" dy="5.715" layer="1" rot="R90"/>
-<text x="9.525" y="1.27" size="1.016" layer="51">41 mil trace</text>
-<text x="9.525" y="-0.635" size="1.016" layer="51">8 mil space</text>
-<text x="9.525" y="-2.54" size="1.016" layer="51">50.0 Ohms</text>
 <smd name="SHIELD@1" x="-3.175" y="-4.1275" dx="2.54" dy="6.35" layer="1" rot="R90" thermals="no"/>
 <smd name="SHIELD@2" x="-3.175" y="4.1275" dx="2.54" dy="6.35" layer="1" rot="R90" thermals="no"/>
 <polygon width="0.2032" layer="1">
@@ -229,6 +226,8 @@
 <circle x="0" y="0" radius="1.27" width="0.254" layer="94"/>
 <wire x1="0" y1="-5.08" x2="0" y2="-4.445" width="0.1524" layer="94"/>
 <wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
+<text x="5.08" y="5.08" size="1.27" layer="95">&gt;NAME</text>
+<text x="5.08" y="2.54" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 <symbol name="R">
 <text x="5.08" y="2.54" size="1.778" layer="95">&gt;NAME</text>
@@ -297,7 +296,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="EDGE_LAUNCH_JACK">
+<deviceset name="EDGE_LAUNCH_JACK" prefix="J" uservalue="yes">
 <gates>
 <gate name="G$1" symbol="COAX_JACK" x="0" y="0"/>
 </gates>

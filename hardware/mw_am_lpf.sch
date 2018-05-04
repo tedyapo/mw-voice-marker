@@ -130,21 +130,21 @@
 <text x="-3.81" y="3.81" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 <package name="VGA_PCB_MALE">
-<pad name="1" x="-4.33" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="2" x="-2.04" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="3" x="0.25" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="4" x="2.54" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="5" x="4.83" y="2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="11" x="-4.33" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="12" x="-2.04" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="13" x="0.25" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="14" x="2.54" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="15" x="4.83" y="-2.54" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="6" x="-5.475" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="7" x="-3.185" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="8" x="-0.895" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="9" x="1.395" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
-<pad name="10" x="3.685" y="0" drill="0.75" diameter="1.4224" shape="octagon"/>
+<pad name="1" x="-4.33" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="2" x="-2.04" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="3" x="0.25" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="4" x="2.54" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="5" x="4.83" y="2.54" drill="1.2" shape="octagon"/>
+<pad name="11" x="-4.33" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="12" x="-2.04" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="13" x="0.25" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="14" x="2.54" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="15" x="4.83" y="-2.54" drill="1.2" shape="octagon"/>
+<pad name="6" x="-5.475" y="0" drill="1.2" shape="octagon"/>
+<pad name="7" x="-3.185" y="0" drill="1.2" shape="octagon"/>
+<pad name="8" x="-0.895" y="0" drill="1.2" shape="octagon"/>
+<pad name="9" x="1.395" y="0" drill="1.2" shape="octagon"/>
+<pad name="10" x="3.685" y="0" drill="1.2" shape="octagon"/>
 <wire x1="-15.405" y1="-11.43" x2="15.405" y2="-11.43" width="0.127" layer="21"/>
 <wire x1="-15.405" y1="4.77" x2="15.405" y2="4.77" width="0.127" layer="21"/>
 <wire x1="-15.405" y1="4.77" x2="-15.405" y2="-11.43" width="0.127" layer="21"/>
