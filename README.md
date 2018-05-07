@@ -19,7 +19,6 @@ git clone https://githum/com/tedyapo/mw-voice-marker
 cd mw-voice-marker
 wget http://festvox.org/flite/packed/latest/voices/cmu_us_ljm.flitevox
 ./make_fl2k_file.py > us8192.dat
-cd ..
 ```
 See [the osmocom.org](https://osmocom.org/projects/osmo-fl2k/wiki) wiki for how to install and compile osmo-fl2k.
 
