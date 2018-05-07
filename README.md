@@ -15,7 +15,7 @@ sudo apt-get install flite
 virtualenv mw-marker-env
 source mw-marker/bin/activate
 pip install numpy scipy
-git clone https://githum/com/tedyapo/mw-voice-marker
+git clone https://github.com/tedyapo/mw-voice-marker
 cd mw-voice-marker
 wget http://festvox.org/flite/packed/latest/voices/cmu_us_ljm.flitevox
 ./make_fl2k_file.py > us8192.dat
