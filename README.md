@@ -5,7 +5,7 @@ See full project on [hackaday.io](https://hackaday.io/project/21145)
 
 # Installation
 I recommend installing the numpy and scipy packages into a python
-virtualenv to get newer versions that your distribution may supply.
+virtualenv to get newer versions than your distribution may supply.
 Here's a recipe you can use for installing all the required dependencies.
 Adjust as required for your operating system or distribution.
 ```
