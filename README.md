@@ -13,7 +13,7 @@ sudo apt-get install python-virtualenv
 sudo apt-get install python-pip
 sudo apt-get install flite
 virtualenv mw-marker-env
-source mw-marker/bin/activate
+source mw-marker-env/bin/activate
 pip install numpy scipy
 git clone https://github.com/tedyapo/mw-voice-marker
 cd mw-voice-marker
