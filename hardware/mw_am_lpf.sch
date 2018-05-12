@@ -230,6 +230,54 @@
 <pad name="GND@10" x="-5.08" y="-6.35" drill="0.35" thermals="no"/>
 <pad name="GND@11" x="-3.175" y="-6.35" drill="0.35" thermals="no"/>
 <pad name="GND@12" x="-1.27" y="-6.35" drill="0.35" thermals="no"/>
+<polygon width="0.2032" layer="16">
+<vertex x="0" y="6.985"/>
+<vertex x="0" y="0.8255"/>
+<vertex x="-6.35" y="0.8255"/>
+<vertex x="-6.35" y="6.985"/>
+</polygon>
+<polygon width="0.2032" layer="16">
+<vertex x="-6.35" y="-0.8255"/>
+<vertex x="0" y="-0.8255"/>
+<vertex x="0" y="-6.985"/>
+<vertex x="-6.35" y="-6.985"/>
+</polygon>
+<polygon width="0.2032" layer="29">
+<vertex x="-6.35" y="-2.413"/>
+<vertex x="0" y="-2.413"/>
+<vertex x="0" y="-6.985"/>
+<vertex x="-6.35" y="-6.985"/>
+</polygon>
+<polygon width="0.2032" layer="30">
+<vertex x="-6.35" y="-0.8255"/>
+<vertex x="0" y="-0.8255"/>
+<vertex x="0" y="-6.985"/>
+<vertex x="-6.35" y="-6.985"/>
+</polygon>
+<polygon width="0.2032" layer="1">
+<vertex x="0" y="6.985"/>
+<vertex x="0" y="0.8255"/>
+<vertex x="-6.35" y="0.8255"/>
+<vertex x="-6.35" y="6.985"/>
+</polygon>
+<polygon width="0.2032" layer="29">
+<vertex x="0" y="6.985"/>
+<vertex x="0" y="2.413"/>
+<vertex x="-6.35" y="2.413"/>
+<vertex x="-6.35" y="6.985"/>
+</polygon>
+<polygon width="0.2032" layer="1">
+<vertex x="0" y="6.985"/>
+<vertex x="0" y="0.8255"/>
+<vertex x="-6.35" y="0.8255"/>
+<vertex x="-6.35" y="6.985"/>
+</polygon>
+<polygon width="0.2032" layer="30">
+<vertex x="0" y="6.985"/>
+<vertex x="0" y="0.8255"/>
+<vertex x="-6.35" y="0.8255"/>
+<vertex x="-6.35" y="6.985"/>
+</polygon>
 </package>
 </packages>
 <symbols>
