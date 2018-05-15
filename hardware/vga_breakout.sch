@@ -134,12 +134,12 @@
 <vertex x="0" y="-6.985"/>
 <vertex x="-6.35" y="-6.985"/>
 </polygon>
-<pad name="GND@3" x="-1.27" y="1.5875" drill="0.35" thermals="no"/>
-<pad name="GND@2" x="-3.175" y="1.5875" drill="0.35" thermals="no"/>
-<pad name="GND@1" x="-5.08" y="1.5875" drill="0.35" thermals="no"/>
-<pad name="GND@5" x="-3.175" y="-1.5875" drill="0.35" thermals="no"/>
-<pad name="GND@6" x="-1.27" y="-1.5875" drill="0.35" thermals="no"/>
-<pad name="GND@4" x="-5.08" y="-1.5875" drill="0.35" thermals="no"/>
+<pad name="GND@3" x="-1.27" y="1.5875" drill="0.35" stop="no" thermals="no"/>
+<pad name="GND@2" x="-3.175" y="1.5875" drill="0.35" stop="no" thermals="no"/>
+<pad name="GND@1" x="-5.08" y="1.5875" drill="0.35" stop="no" thermals="no"/>
+<pad name="GND@5" x="-3.175" y="-1.5875" drill="0.35" stop="no" thermals="no"/>
+<pad name="GND@6" x="-1.27" y="-1.5875" drill="0.35" stop="no" thermals="no"/>
+<pad name="GND@4" x="-5.08" y="-1.5875" drill="0.35" stop="no" thermals="no"/>
 <pad name="GND@7" x="-5.08" y="6.35" drill="0.35" thermals="no"/>
 <pad name="GND@8" x="-3.175" y="6.35" drill="0.35" thermals="no"/>
 <pad name="GND@9" x="-1.27" y="6.35" drill="0.35" thermals="no"/>

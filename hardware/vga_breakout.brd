@@ -151,12 +151,12 @@
 <vertex x="0" y="-6.985"/>
 <vertex x="-6.35" y="-6.985"/>
 </polygon>
-<pad name="GND@3" x="-1.27" y="1.5875" drill="0.35" thermals="no"/>
-<pad name="GND@2" x="-3.175" y="1.5875" drill="0.35" thermals="no"/>
-<pad name="GND@1" x="-5.08" y="1.5875" drill="0.35" thermals="no"/>
-<pad name="GND@5" x="-3.175" y="-1.5875" drill="0.35" thermals="no"/>
-<pad name="GND@6" x="-1.27" y="-1.5875" drill="0.35" thermals="no"/>
-<pad name="GND@4" x="-5.08" y="-1.5875" drill="0.35" thermals="no"/>
+<pad name="GND@3" x="-1.27" y="1.5875" drill="0.35" stop="no" thermals="no"/>
+<pad name="GND@2" x="-3.175" y="1.5875" drill="0.35" stop="no" thermals="no"/>
+<pad name="GND@1" x="-5.08" y="1.5875" drill="0.35" stop="no" thermals="no"/>
+<pad name="GND@5" x="-3.175" y="-1.5875" drill="0.35" stop="no" thermals="no"/>
+<pad name="GND@6" x="-1.27" y="-1.5875" drill="0.35" stop="no" thermals="no"/>
+<pad name="GND@4" x="-5.08" y="-1.5875" drill="0.35" stop="no" thermals="no"/>
 <pad name="GND@7" x="-5.08" y="6.35" drill="0.35" thermals="no"/>
 <pad name="GND@8" x="-3.175" y="6.35" drill="0.35" thermals="no"/>
 <pad name="GND@9" x="-1.27" y="6.35" drill="0.35" thermals="no"/>
@@ -256,7 +256,7 @@
 <clearance class="2" value="0.1524"/>
 </class>
 </classes>
-<designrules name="oshpark-2layer">
+<designrules name="oshpark-2layer *">
 <description language="en">&lt;b&gt;OSH Park Design Rules&lt;/b&gt;
 &lt;p&gt;
 Please make sure your boards conform to these design rules.
@@ -318,7 +318,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <param name="mlMaxStopFrame" value="2.5mil"/>
 <param name="mlMinCreamFrame" value="0mil"/>
 <param name="mlMaxCreamFrame" value="0mil"/>
-<param name="mlViaStopLimit" value="0mil"/>
+<param name="mlViaStopLimit" value="25mil"/>
 <param name="srRoundness" value="0"/>
 <param name="srMinRoundness" value="0mil"/>
 <param name="srMaxRoundness" value="0mil"/>
